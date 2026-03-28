@@ -1,0 +1,17 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  -i "../../../../../../Mini project/Pedestrian_Detection" --include "../../../../../2025.2/Vivado/data/rsb/busdef" \
+"../../../../Pedestrian Detection.srcs/sources_1/new/hog_cell_controller.v" \
+"../../../../Pedestrian Detection.srcs/sources_1/new/hog_histogram.v" \
+"../../../../Pedestrian Detection.srcs/sources_1/new/line_buffer.v" \
+"../../../../Pedestrian Detection.srcs/sources_1/new/orientation_bin.v" \
+"../../../../Pedestrian Detection.srcs/sources_1/new/pedestrian_top.v" \
+"../../../../Pedestrian Detection.srcs/sources_1/new/pixel_stream.v" \
+"../../../../Pedestrian Detection.srcs/sources_1/new/sobel_filter.v" \
+"../../../../Pedestrian Detection.srcs/sources_1/new/svm_classifier.v" \
+"../../../../Pedestrian Detection.srcs/sim_1/new/testbench.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

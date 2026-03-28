@@ -1,0 +1,39 @@
+transcript off
+onbreak {quit -force}
+onerror {quit -force}
+transcript on
+
+vlib work
+vlib riviera/xpm
+vlib riviera/xil_defaultlib
+
+vmap xpm riviera/xpm
+vmap xil_defaultlib riviera/xil_defaultlib
+
+vlog -work xpm  -incr "+incdir+../../../../../Mini project/Pedestrian_Detection" "+incdir+../../../../2025.2/Vivado/data/rsb/busdef" "+incdir+../../../Pedestrian Detection.gen/sources_1/ip/clk_wiz_0" -l xpm -l xil_defaultlib \
+"C:/vivado/2025.2/Vivado/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+"C:/vivado/2025.2/Vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+
+vcom -work xpm -93  -incr \
+"C:/vivado/2025.2/Vivado/data/ip/xpm/xpm_VCOMP.vhd" \
+
+vlog -work xil_defaultlib  -incr -v2k5 "+incdir+../../../../../Mini project/Pedestrian_Detection" "+incdir+../../../../2025.2/Vivado/data/rsb/busdef" "+incdir+../../../Pedestrian Detection.gen/sources_1/ip/clk_wiz_0" -l xpm -l xil_defaultlib \
+"../../../Pedestrian Detection.srcs/sources_1/new/camera_capture.v" \
+"../../../Pedestrian Detection.srcs/sources_1/new/camera_clock.v" \
+"../../../Pedestrian Detection.srcs/sources_1/new/detection_filter.v" \
+"../../../Pedestrian Detection.srcs/sources_1/new/frame_counter.v" \
+"../../../Pedestrian Detection.srcs/sources_1/new/frame_detector.v" \
+"../../../Pedestrian Detection.srcs/sources_1/new/hog_cell_controller.v" \
+"../../../Pedestrian Detection.srcs/sources_1/new/hog_histogram.v" \
+"../../../Pedestrian Detection.srcs/sources_1/new/line_buffer.v" \
+"../../../Pedestrian Detection.srcs/sources_1/new/orientation_bin.v" \
+"../../../Pedestrian Detection.srcs/sources_1/new/ov7670_config.v" \
+"../../../Pedestrian Detection.srcs/sources_1/new/pedestrian_top.v" \
+"../../../Pedestrian Detection.srcs/sources_1/new/rgb_to_gray.v" \
+"../../../Pedestrian Detection.srcs/sources_1/new/sobel_filter.v" \
+"../../../Pedestrian Detection.srcs/sources_1/new/svm_classifier.v" \
+"../../../Pedestrian Detection.srcs/sim_1/new/testbench.v" \
+
+vlog -work xil_defaultlib \
+"glbl.v"
+
