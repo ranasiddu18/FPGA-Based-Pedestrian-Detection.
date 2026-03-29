@@ -584,7 +584,10 @@ The system demonstrates how computer vision algorithms can be efficiently implem
 <img width="1570" height="994" alt="image" src="https://github.com/user-attachments/assets/b302d45d-5d39-4e65-9c0f-5c1d432cd13f" />
 
 
+---
+
 ## Simulation 
 <img width="1573" height="921" alt="Screenshot 2026-03-11 011341" src="https://github.com/user-attachments/assets/949ea4b8-f492-4261-9db9-bc52f9a3f2f5" />
 
 
+---
