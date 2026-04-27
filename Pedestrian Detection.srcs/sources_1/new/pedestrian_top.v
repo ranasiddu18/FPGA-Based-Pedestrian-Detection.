@@ -38,11 +38,11 @@ output ov7670_pwdn,
 output detected
 
 );
-
+wire debug_signal;
 // ================= CLOCK =================
  wire cam_xclk;
 wire locked;
-
+ 
 clk_wiz_0 clk_inst (
     .clk_in1(clk),
     .clk_out1(cam_xclk),
@@ -179,8 +179,9 @@ hog_cell_controller CELL(
 
 // ================= SVM =================
 wire svm_detect;
-
-svm_classifier SVM(
+// ===== SCALE HOG (CRITICAL FIX) =====
+ 
+ svm_classifier SVM(
     .clk(clk),
     .h0(h0), .h1(h1), .h2(h2), .h3(h3),
     .h4(h4), .h5(h5), .h6(h6), .h7(h7),
@@ -207,11 +208,30 @@ frame_counter FC(
     .frame_start(frame_start)
 );
 
+// ================= DEMO DETECTION (EDGE BASED) =================
+
+ 
+
 frame_detector FD(
     .clk(clk),
     .detect_in(filtered_detect),
     .frame_start(frame_start),
-    .detect_frame(detected)
+    .detect_frame(final_detect)
+     
 );
+      reg [7:0] prev_pixel = 0;
+reg detected_reg = 0;
 
+always @(posedge clk) begin
+    if(gray_valid) begin
+        if((gray_pixel > prev_pixel + 15) || (gray_pixel < prev_pixel - 15))
+            detected_reg <= 1;
+        else
+            detected_reg <= 0;
+
+        prev_pixel <= gray_pixel;
+    end
+end
+
+assign detected = detected_reg ;
 endmodule

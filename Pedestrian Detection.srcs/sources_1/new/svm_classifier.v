@@ -19,7 +19,8 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
- module svm_classifier(
+  module svm_classifier(
+
     input clk,
 
     input [7:0] h0,h1,h2,h3,h4,h5,h6,h7,
@@ -28,7 +29,7 @@
     output reg detected
 );
 
-// Converted weights
+// Weights
 parameter signed w0  = -115;
 parameter signed w1  = 18;
 parameter signed w2  = 4;
@@ -46,23 +47,24 @@ parameter signed w13 = -31;
 parameter signed w14 = 41;
 parameter signed w15 = -23;
 
-// Bias (from your file header: -8)
 parameter signed bias = -8;
 
-reg signed [31:0] score;
+reg signed [31:0] score, score_next;
 
+// Compute next score (combinational)
+always @(*) begin
+    score_next =
+        w0*h0 + w1*h1 + w2*h2 + w3*h3 +
+        w4*h4 + w5*h5 + w6*h6 + w7*h7 +
+        w8*h8 + w9*h9 + w10*h10 + w11*h11 +
+        w12*h12 + w13*h13 + w14*h14 + w15*h15 +
+        bias;
+end
+
+// Register + decision
 always @(posedge clk) begin
-
-score <=
-w0*h0 + w1*h1 + w2*h2 + w3*h3 +
-w4*h4 + w5*h5 + w6*h6 + w7*h7 +
-w8*h8 + w9*h9 + w10*h10 + w11*h11 +
-w12*h12 + w13*h13 + w14*h14 + w15*h15 +
-bias;
-
-// threshold
-detected <= (score > 0);
-
+    score <= score_next;
+     detected <= (score_next > 0);   // start with 0 threshold
 end
 
 endmodule

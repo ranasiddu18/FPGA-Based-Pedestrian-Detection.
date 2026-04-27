@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
-| Date         : Sat Mar 28 01:59:16 2026
+| Date         : Thu Apr  9 11:19:25 2026
 | Host         : Ranasiddu running 64-bit major release  (build 9200)
 | Command      : report_methodology -file pedestrian_top_methodology_drc_routed.rpt -pb pedestrian_top_methodology_drc_routed.pb -rpx pedestrian_top_methodology_drc_routed.rpx
 | Design       : pedestrian_top
@@ -23,7 +23,7 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max checks: <unlimited>
-             Checks found: 156
+             Checks found: 123
 +-----------+------------------+----------------------------------------------------+--------+
 | Rule      | Severity         | Description                                        | Checks |
 +-----------+------------------+----------------------------------------------------+--------+
@@ -33,8 +33,6 @@ Table of Contents
 | TIMING-27 | Critical Warning | Invalid primary clock on hierarchical pin          | 1      |
 | HPDR-1    | Warning          | Port pin direction inconsistency                   | 1      |
 | PDRC-190  | Warning          | Suboptimally placed synchronized register chain    | 1      |
-| SYNTH-6   | Warning          | Timing of a RAM block might be sub-optimal         | 2      |
-| TIMING-16 | Warning          | Large setup violation                              | 31     |
 | TIMING-18 | Warning          | Missing input or output delay                      | 1      |
 +-----------+------------------+----------------------------------------------------+--------+
 
@@ -647,172 +645,7 @@ Related violations: <none>
 
 PDRC-190#1 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell FIFO/fifo_inst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d2_reg in site SLICE_X0Y70 is part of a synchronized register chain that is suboptimally placed as the load FDSE cell FIFO/fifo_inst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d3_reg is not placed in the same (SLICE) site.
-Related violations: <none>
-
-SYNTH-6#1 Warning
-Timing of a RAM block might be sub-optimal  
-The timing for the instance LB/line2_reg_1, implemented as a RAM block, might be sub-optimal as no output register was merged into the block.
-Related violations: <none>
-
-SYNTH-6#2 Warning
-Timing of a RAM block might be sub-optimal  
-The timing for the instance LB/line2_reg_2, implemented as a RAM block, might be sub-optimal as no output register was merged into the block.
-Related violations: <none>
-
-TIMING-16#1 Warning
-Large setup violation  
-There is a large setup violation of -1.759 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[1]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#2 Warning
-Large setup violation  
-There is a large setup violation of -2.112 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[2]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#3 Warning
-Large setup violation  
-There is a large setup violation of -2.542 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[3]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#4 Warning
-Large setup violation  
-There is a large setup violation of -2.975 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[4]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#5 Warning
-Large setup violation  
-There is a large setup violation of -4.108 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[5]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#6 Warning
-Large setup violation  
-There is a large setup violation of -4.531 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[6]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#7 Warning
-Large setup violation  
-There is a large setup violation of -4.808 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[7]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#8 Warning
-Large setup violation  
-There is a large setup violation of -5.424 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[8]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#9 Warning
-Large setup violation  
-There is a large setup violation of -5.586 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[9]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#10 Warning
-Large setup violation  
-There is a large setup violation of -6.226 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[10]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#11 Warning
-Large setup violation  
-There is a large setup violation of -6.285 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[11]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#12 Warning
-Large setup violation  
-There is a large setup violation of -6.684 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[12]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#13 Warning
-Large setup violation  
-There is a large setup violation of -6.966 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[13]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#14 Warning
-Large setup violation  
-There is a large setup violation of -7.666 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[14]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#15 Warning
-Large setup violation  
-There is a large setup violation of -7.725 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[15]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#16 Warning
-Large setup violation  
-There is a large setup violation of -8.233 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[16]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#17 Warning
-Large setup violation  
-There is a large setup violation of -8.344 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[17]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#18 Warning
-Large setup violation  
-There is a large setup violation of -8.724 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[18]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#19 Warning
-Large setup violation  
-There is a large setup violation of -8.783 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[19]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#20 Warning
-Large setup violation  
-There is a large setup violation of -8.916 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[20]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#21 Warning
-Large setup violation  
-There is a large setup violation of -8.932 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[22]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#22 Warning
-Large setup violation  
-There is a large setup violation of -9.006 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[23]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#23 Warning
-Large setup violation  
-There is a large setup violation of -9.027 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[21]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#24 Warning
-Large setup violation  
-There is a large setup violation of -9.097 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[24]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#25 Warning
-Large setup violation  
-There is a large setup violation of -9.113 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[26]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#26 Warning
-Large setup violation  
-There is a large setup violation of -9.187 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[27]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#27 Warning
-Large setup violation  
-There is a large setup violation of -9.208 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[25]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#28 Warning
-Large setup violation  
-There is a large setup violation of -9.414 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[28]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#29 Warning
-Large setup violation  
-There is a large setup violation of -9.430 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[30]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#30 Warning
-Large setup violation  
-There is a large setup violation of -9.504 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[31]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#31 Warning
-Large setup violation  
-There is a large setup violation of -9.525 ns between HOG/h6_reg[0]/C (clocked by clk) and SVM/score_reg[29]/D (clocked by clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+The FDRE cell FIFO/fifo_inst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d2_reg in site SLICE_X0Y43 is part of a synchronized register chain that is suboptimally placed as the load FDSE cell FIFO/fifo_inst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d3_reg is not placed in the same (SLICE) site.
 Related violations: <none>
 
 TIMING-18#1 Warning

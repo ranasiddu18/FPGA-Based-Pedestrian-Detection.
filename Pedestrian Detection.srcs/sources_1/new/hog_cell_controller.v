@@ -29,28 +29,25 @@
     output reg reset_hist
 );
 
-reg [6:0] pixel_count = 0;
+reg [7:0] pixel_count = 0;
 
 always @(posedge clk) begin
 
     if(valid_in) begin
-
-        if(pixel_count == 7'd63) begin
-
+        if(pixel_count == 8'd127) begin
             pixel_count <= 0;
             cell_done <= 1;
             reset_hist <= 1;
-
         end
-
         else begin
-
             pixel_count <= pixel_count + 1;
             cell_done <= 0;
-            reset_hist <= 0;
-
+            reset_hist <= 1;   // 🔴 KEEP RESET HIGH DURING CELL
         end
-
+    end
+    else begin
+        reset_hist <= 0;
+        cell_done <= 0;
     end
 
 end

@@ -1,21 +1,39 @@
 Vivado Simulator v2025.2
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: C:/vivado/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot testbench_behav xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
+Running: C:/vivado/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_14 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot testbench_behav xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-5021] port 'ov7670_pclk' is not connected on this instance [C:/vivado/Pedestrian Detection/Pedestrian Detection.srcs/sim_1/new/testbench.v:28]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.pixel_stream
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=50.25...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.clk_wiz_0_clk_wiz
+Compiling module xil_defaultlib.clk_wiz_0
+Compiling module xil_defaultlib.ov7670_config
+Compiling module xil_defaultlib.camera_capture
+Compiling module fifo_generator_v13_2_14.fifo_generator_v13_2_14_sync_sta...
+Compiling module fifo_generator_v13_2_14.fifo_generator_v13_2_14_bhv_ver_...
+Compiling module fifo_generator_v13_2_14.fifo_generator_v13_2_14_bhv_ver_...
+Compiling module fifo_generator_v13_2_14.fifo_generator_v13_2_14_CONV_VER...
+Compiling module fifo_generator_v13_2_14.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module xil_defaultlib.fifo_generator_0
+Compiling module xil_defaultlib.camera_fifo
+Compiling module xil_defaultlib.rgb_to_gray
 Compiling module xil_defaultlib.line_buffer
 Compiling module xil_defaultlib.sobel_filter
 Compiling module xil_defaultlib.orientation_bin
 Compiling module xil_defaultlib.hog_histogram
 Compiling module xil_defaultlib.hog_cell_controller
 Compiling module xil_defaultlib.svm_classifier
+Compiling module xil_defaultlib.detection_filter
+Compiling module xil_defaultlib.frame_counter
+Compiling module xil_defaultlib.frame_detector
 Compiling module xil_defaultlib.pedestrian_top
 Compiling module xil_defaultlib.testbench
 Compiling module xil_defaultlib.glbl

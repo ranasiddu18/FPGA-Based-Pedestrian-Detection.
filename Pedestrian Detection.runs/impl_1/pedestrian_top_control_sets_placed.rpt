@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
-| Date         : Sat Mar 28 01:58:56 2026
+| Date         : Thu Apr  9 11:19:09 2026
 | Host         : Ranasiddu running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file pedestrian_top_control_sets_placed.rpt
 | Design       : pedestrian_top
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    29 |
-|    Minimum number of control sets                        |    29 |
+| Total control sets                                       |    15 |
+|    Minimum number of control sets                        |    15 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    71 |
+| Unused register locations in slices containing registers |    61 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    29 |
+| Total control sets |    15 |
 | >= 0 to < 4        |     5 |
 | >= 4 to < 6        |     3 |
-| >= 6 to < 8        |     1 |
-| >= 8 to < 10       |    11 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     1 |
 | >= 10 to < 12      |     1 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
-| >= 16              |     8 |
+| >= 16              |     5 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,12 +58,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             159 |           43 |
+| No           | No                    | No                     |             117 |           26 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              37 |           12 |
-| Yes          | No                    | No                     |              65 |           21 |
+| No           | Yes                   | No                     |              29 |           10 |
+| Yes          | No                    | No                     |              15 |            8 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             148 |           44 |
+| Yes          | Yes                   | No                     |              58 |           12 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -73,35 +73,21 @@ Table of Contents
 +------------------------+----------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+------------------+----------------+--------------+
 |      Clock Signal      |                                                     Enable Signal                                                    |                                                      Set/Reset Signal                                                     | Slice Load Count | Bel Load Count | Bels / Slice |
 +------------------------+----------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+------------------+----------------+--------------+
-|  CONFIG/clk0           |                                                                                                                      |                                                                                                                           |                1 |              1 |         1.00 |
 |  CONFIG/sclk_reg_n_0   | CONFIG/sioc_i_1_n_0                                                                                                  |                                                                                                                           |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG         | FILTER/detect_out                                                                                                    | FC/frame_start                                                                                                            |                1 |              1 |         1.00 |
+|  CONFIG/clk0           |                                                                                                                      |                                                                                                                           |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG         | GRAY/gray_valid                                                                                                      |                                                                                                                           |                1 |              1 |         1.00 |
 |  CONFIG/sclk_reg_n_0   |                                                                                                                      |                                                                                                                           |                1 |              2 |         2.00 |
 |  ov7670_pclk_IBUF_BUFG |                                                                                                                      | FIFO/fifo_inst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gsckt_wrst.gic_rst.sckt_wr_rst_ic_reg_0 |                2 |              3 |         1.50 |
 |  CONFIG/sclk_reg_n_0   | CONFIG/bit_cnt[3]_i_1_n_0                                                                                            |                                                                                                                           |                2 |              4 |         2.00 |
-|  CONFIG/sclk_reg_n_0   | CONFIG/state[3]_i_1_n_0                                                                                              |                                                                                                                           |                1 |              4 |         4.00 |
+|  CONFIG/sclk_reg_n_0   | CONFIG/state[3]_i_1_n_0                                                                                              |                                                                                                                           |                2 |              4 |         2.00 |
 |  CONFIG/sclk_reg_n_0   | CONFIG/rom_addr[4]_i_1_n_0                                                                                           |                                                                                                                           |                2 |              5 |         2.50 |
-|  clk_IBUF_BUFG         | ORI/ori_valid                                                                                                        |                                                                                                                           |                2 |              7 |         3.50 |
 |  CONFIG/sclk_reg_n_0   | CONFIG/data[7]_i_2_n_0                                                                                               | CONFIG/data_0[0]                                                                                                          |                1 |              8 |         8.00 |
-|  clk_IBUF_BUFG         |                                                                                                                      | SVM/detected_reg_0[0]                                                                                                     |                2 |              8 |         4.00 |
-|  clk_IBUF_BUFG         | ORI/E[0]                                                                                                             | CELL/SR[0]                                                                                                                |                3 |              8 |         2.67 |
-|  clk_IBUF_BUFG         | ORI/valid_out_reg_0[0]                                                                                               | CELL/SR[0]                                                                                                                |                3 |              8 |         2.67 |
-|  clk_IBUF_BUFG         | ORI/bin_reg[0]_1[0]                                                                                                  | CELL/SR[0]                                                                                                                |                4 |              8 |         2.00 |
-|  clk_IBUF_BUFG         | ORI/valid_out_reg_1[0]                                                                                               | CELL/SR[0]                                                                                                                |                4 |              8 |         2.00 |
-|  clk_IBUF_BUFG         | ORI/bin_reg[0]_2[0]                                                                                                  | CELL/SR[0]                                                                                                                |                2 |              8 |         4.00 |
-|  clk_IBUF_BUFG         | ORI/bin_reg[0]_0[0]                                                                                                  | CELL/SR[0]                                                                                                                |                2 |              8 |         4.00 |
-|  clk_IBUF_BUFG         | ORI/bin_reg[0]_3[0]                                                                                                  | CELL/SR[0]                                                                                                                |                4 |              8 |         2.00 |
-|  clk_IBUF_BUFG         | ORI/bin_reg[1]_0[0]                                                                                                  | CELL/SR[0]                                                                                                                |                4 |              8 |         2.00 |
-|  clk_IBUF_BUFG         | GRAY/gray_valid                                                                                                      | LB/col[0]                                                                                                                 |                3 |              9 |         3.00 |
 |  clk_IBUF_BUFG         |                                                                                                                      | FIFO/fifo_inst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/SR[0]                                                          |                3 |             10 |         3.33 |
 |  CONFIG/clk0           |                                                                                                                      | CONFIG/sclk                                                                                                               |                5 |             16 |         3.20 |
-|  clk_IBUF_BUFG         | GRAY/gray_valid                                                                                                      | FC/count[16]_i_1_n_0                                                                                                      |                4 |             16 |         4.00 |
 |  clk_IBUF_BUFG         | FIFO/fifo_inst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/ram_empty_fb_i_reg[0] | FIFO/fifo_inst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/SR[0]                                                          |                4 |             20 |         5.00 |
-|  clk_IBUF_BUFG         | LB/E[0]                                                                                                              |                                                                                                                           |                7 |             22 |         3.14 |
-|  clk_IBUF_BUFG         | SOBEL/valid_out_reg_0                                                                                                |                                                                                                                           |                6 |             22 |         3.67 |
-|  ov7670_pclk_IBUF_BUFG | FIFO/fifo_inst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/E[0]                          | FIFO/fifo_inst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gsckt_wrst.gic_rst.sckt_wr_rst_ic_reg_0 |                5 |             30 |         6.00 |
-|  ov7670_pclk_IBUF_BUFG |                                                                                                                      |                                                                                                                           |               14 |             60 |         4.29 |
-|  clk_IBUF_BUFG         |                                                                                                                      |                                                                                                                           |               27 |             96 |         3.56 |
+|  ov7670_pclk_IBUF_BUFG | FIFO/fifo_inst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/E[0]                          | FIFO/fifo_inst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gsckt_wrst.gic_rst.sckt_wr_rst_ic_reg_0 |                7 |             30 |         4.29 |
+|  clk_IBUF_BUFG         |                                                                                                                      |                                                                                                                           |               11 |             54 |         4.91 |
+|  ov7670_pclk_IBUF_BUFG |                                                                                                                      |                                                                                                                           |               13 |             60 |         4.62 |
 +------------------------+----------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+------------------+----------------+--------------+
 
 
